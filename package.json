@@ -19,6 +19,7 @@
     "@dnd-kit/utilities": "^3.2.2",
     "axios": "^1.5.0",
     "chart.js": "^4.5.1",
+    "dotenv": "^17.2.3",
     "lodash": "^4.17.21",
     "luxon": "^3.7.2",
     "react": "^18.2.0",
