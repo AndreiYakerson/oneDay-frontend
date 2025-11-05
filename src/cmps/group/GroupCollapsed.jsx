@@ -26,6 +26,7 @@ export function GroupCollapsed({ group, groupsLength }) {
             zIndex: isDragging ? 10 : 'auto',
             border: isDragging ? '1px dashed #999' : '1px solid rgb(208, 212, 228)',
             borderLeft: isDragging ? '1px dashed #999' : `6px solid ${group.style['--group-color']}`,
+            width: '350px',
         }}
     >
         <div className="group-collapsed-content">

@@ -143,10 +143,6 @@
 .temporary-white-block {
     background-color: var(--primary-background-color);
     width: 100%;
-
-    &:hover {
-        cursor: grab;
-    }
 }
 
 
@@ -422,7 +418,8 @@
     border-left: 6px solid;
     border-left-color: var(--group-color);
     height: 35px;
-    width: calc(100% - 70px);
+    width: calc(100% - 100px);
+    width: 320px;
 
     translate: 70px;
     rotate: 1deg;
