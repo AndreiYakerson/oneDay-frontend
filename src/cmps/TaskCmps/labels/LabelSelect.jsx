@@ -41,7 +41,6 @@ export function LabelSelect({ labels, onClose, onUpdate, type, onCloseAnchor, on
             setLabelsToSelect(labels)
         } catch (error) {
             console.log(' Cannot update label')
-
         }
     }
 

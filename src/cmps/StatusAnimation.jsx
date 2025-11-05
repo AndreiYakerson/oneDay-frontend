@@ -1,9 +1,7 @@
 
 export function StatusAnimation({ color }) {
    const varColor = color.replace(/var\((--[^)]+)\)/, '$1')
-    // console.log(color);
     
-
     const rgbColor = getCssVarAsRgb(varColor)
     const colorParts = rgbColor.split(',')
     const newPart = colorParts[1] - 30

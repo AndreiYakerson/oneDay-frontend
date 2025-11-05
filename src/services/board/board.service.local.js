@@ -253,12 +253,9 @@ async function getDashboardData(filterBy = {}) {
     const statusTypes = _sumStatusesType(tasks)
     const members = _sumMembers(filteredBoard)
 
-
     dashboardData.tasksCount = tasks.length
     dashboardData.byStatus = _getSumDataByStatus(tasks, statusTypes)
     dashboardData.byMember = members?.length > 0 ? _getSumDataByMembers(tasks, members) : []
-
-    console.log('dashboardData:', dashboardData)
 
     return dashboardData
 }

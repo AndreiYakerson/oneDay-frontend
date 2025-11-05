@@ -104,11 +104,7 @@ export function TaskOverlay({ task, groupId, taskIdx }) {
     // crudl fncs
 
     async function updateCmpInfo(cmp, cmpInfoPropName, data, activityTitle) {
-
-        console.log('data:', data)
-
         const taskPropName = cmp.info.propName
-        console.log(`Updating: ${taskPropName} to: `, data)
 
         // Update cmps in local state
         const updatedCmp = structuredClone(cmp)

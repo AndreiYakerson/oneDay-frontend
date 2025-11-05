@@ -2,7 +2,6 @@ import { useRef, useEffect } from "react"
 import Chart from "chart.js/auto"
 
 export function BarChart({ data }) {
-  console.log("🚀 ~ BarChart ~ data:", data)
   const canvasRef = useRef(null)
   const chartRef = useRef(null)
 
@@ -12,7 +11,6 @@ export function BarChart({ data }) {
     if (chartRef.current) chartRef.current.destroy()
     const root = getComputedStyle(document.documentElement)
     const filteredStatusData = data.byPriority.filter(s => s.id !== 'default');
-    console.log("🚀 ~ BarChart ~ filteredStatusData:", filteredStatusData)
 
     const labels = filteredStatusData.filter(s => s.txt !== 'Default Label').map(s => s.txt)
     const values = filteredStatusData.map(s => s.tasksCount)

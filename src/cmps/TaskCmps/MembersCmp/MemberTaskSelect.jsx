@@ -21,7 +21,6 @@ export function MemberTaskSelect({ selectedMemberIds, onClose, members, onInvite
     //Demo
     useEffect(() => {
         if (!loadFromStorage('users')) {
-            console.log(' Setting demo user to LocalStorage ')
             let users = userService.createDemoUsersForLoggedUsers()
             saveToStorage('users', users)
         }

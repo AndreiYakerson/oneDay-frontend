@@ -2,7 +2,6 @@ import { ImgCmp } from "../../ImgCmp";
 import { SvgIcon } from "../../SvgIcon";
 
 export function FullScreenContainer({ imgSrc, imgTitle, onClosePopUp }) {
-    console.log("🚀 ~ FullScreenContainer ~ imgTitle:", imgTitle)
 
     return (
         <div className="full-screen-container">

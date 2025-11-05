@@ -49,7 +49,6 @@ export function StatusPicker({ info, onUpdate }) {
     }
 
     function onClose() {
-        console.log("🚀 ~ onClose ~ onClose:")
         setStatusAnchor(null)
         onCloseFloating()
     }

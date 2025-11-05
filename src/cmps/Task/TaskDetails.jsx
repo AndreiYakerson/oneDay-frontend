@@ -50,7 +50,6 @@ export function TaskDetails() {
     }
 
     async function onUpdateTaskTitle(newTitle) {
-        console.log("🚀 ~ onUpdateTaskTitle ~ newTitle:", newTitle)
         const preTitleCopy = task?.title
         setTitleToEdit(newTitle)
 
