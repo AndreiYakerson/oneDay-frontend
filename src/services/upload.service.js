@@ -1,8 +1,11 @@
+import { log10 } from "chart.js/helpers"
+
 export const uploadService = {
 	uploadImg,
 }
 
 async function uploadImg(ev) {
+
 	const CLOUD_NAME = 'dauvuuhdv'
 	const UPLOAD_PRESET = 'oneDay'
 

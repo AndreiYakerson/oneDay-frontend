@@ -198,7 +198,6 @@ export function BoardDetails() {
 
 
     useEffect(() => {
-        console.log('🔔 registering group listener')
         // task
         socketService.on(SOCKET_EVENT_ADD_TASK, onAddTaskFromSocket)
         socketService.on(SOCKET_EVENT_DUPLICATE_TASK, onDuplicateTask)
