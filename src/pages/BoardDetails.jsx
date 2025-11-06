@@ -161,9 +161,18 @@ export function BoardDetails() {
         const headers = container.querySelectorAll('.group-header')
         if (!headers.length) return
 
+        const rows = container.querySelectorAll('.sticky-column')
+        
+
         const onScroll = () => {
             const containerRect = container.getBoundingClientRect()
             const scrollTop = container.scrollTop
+            const scrollLeft = container.scrollLeft;
+
+            rows.forEach(row => {
+                row.classList.toggle('side-box-shadow', scrollLeft > 0)
+            })
+            
 
             headers.forEach((header, idx) => {
                 const rect = header.getBoundingClientRect()

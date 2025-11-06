@@ -369,7 +369,7 @@ export function GroupPreview({ group, groupsLength, managingType, TaskList,
                         <div className="task-menu-wrapper"></div>
                         <div className="table-border"></div>
                         <div className="task-select"></div>
-                        <div className="task-title">
+                        <div className="task-title sticky-column">
                             <span>{managingType}</span>
                         </div>
                         <div
@@ -458,7 +458,7 @@ export function GroupPreview({ group, groupsLength, managingType, TaskList,
             </div>
 
             <div className="table-row sum-row">
-                <div className="sticky-cell-wrapper">
+                <div className="sticky-cell-wrapper sticky-column">
                     <div className="task-menu-wrapper"></div>
                     <div className="border-radius-block">
                         <span></span>

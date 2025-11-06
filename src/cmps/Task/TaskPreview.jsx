@@ -389,7 +389,7 @@ export function TaskPreview({ task, groupId, taskIdx }) {
 
                     <div className="grab-block" ></div>
 
-                    <div onClick={onToggleTaskDetails} className={`task-updates-cell ${task.id === taskId ? "focus" : ""}`}>
+                    <div onClick={onToggleTaskDetails} className={`task-updates-cell ${task.id === taskId ? "focus" : ""} sticky-column`}>
                         <SvgIcon
                             iconName={task?.updates?.length > 0 ? 'bubble' : 'bubblePlus'}
                             size={22}
