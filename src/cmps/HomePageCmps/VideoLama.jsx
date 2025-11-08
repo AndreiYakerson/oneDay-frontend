@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { SvgIcon } from "../SvgIcon";
 
-export function VideoLama(props) {
+export function VideoLama({onLoginGuest}) {
     return (
         <section className="video-lama">
 
@@ -9,12 +9,12 @@ export function VideoLama(props) {
                 <div className="video-text">The work platform your <br />team will love to use</div>
 
                 <div className="video-btns flex">
-                    <Link to="/board" className='btn get-started-btn'>
+                    <button className="get-started-btn" onClick={onLoginGuest}>
                         <span>
                             Get Started
                         </span>
                         <SvgIcon iconName="arrowRight" size={12} colorName="currentColor" />
-                    </Link>
+                    </button>
 
                     <button className="sales-btn">Contact Sales</button>
                 </div>

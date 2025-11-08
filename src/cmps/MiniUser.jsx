@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import defaultAvatar from '/img/default-avatar.png'
+import { log10 } from "chart.js/helpers";
 
 export function MiniUser({ user }) {
+    console.log('user in MiniUser:', user);
+    
     return <div className="mini-user">
 
         <div className="avatar-logo-container">

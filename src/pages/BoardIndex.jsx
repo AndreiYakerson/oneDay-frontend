@@ -13,6 +13,8 @@ import { AppLoader } from '../cmps/AppLoader'
 import { userService } from '../services/user'
 import { makeId } from '../services/util.service'
 import { signup } from '../store/actions/user.actions'
+import { useNavigate } from 'react-router'
+
 
 
 export function BoardIndex({ setIsSideBarOpen }) {
@@ -24,11 +26,10 @@ export function BoardIndex({ setIsSideBarOpen }) {
     const [filterBy, setFilterBy] = useState(boardService.getDefaultFilter())
     const [isCollapse, setIsCollapse] = useState(false)
 
-
-
+    const navigate = useNavigate()
 
     useEffect(() => {
-        if (!user) onSignupGuest()
+        if (!user) navigate('/')
         loadBoards(filterBy)
     }, [filterBy])
 
@@ -40,19 +41,6 @@ export function BoardIndex({ setIsSideBarOpen }) {
             showErrorMsg('Cannot remove board')
         }
     }
-
-    async function onSignupGuest() {
-        const users = await userService.getUsers()
-        const credentials = {
-            username: `HappyGuest${users.length + 1}`,
-            password: `HappyGuest${users.length + 1}`,
-            fullname: 'HappyGuest',
-        }
-        const user = await signup(credentials)
-        setUser(user)
-    }
-
-
 
     async function onUpdateBoard(board, valsToUpdate) {
 

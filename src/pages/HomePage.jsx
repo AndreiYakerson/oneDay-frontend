@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 // cmps
 import { SvgIcon } from '../cmps/SvgIcon'
@@ -8,14 +8,29 @@ import { VideoLama } from '../cmps/HomePageCmps/VideoLama'
 
 // img
 import logoImg from '/img/logo.png'
+import { useDispatch } from 'react-redux'
+import { SET_USER } from '../store/reducers/user.reducer'
 
 export function HomePage() {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
 
     const headerRef = useRef(null)
+    const navigate = useNavigate()
+
+    const dispatch = useDispatch()
 
     function toggleIsMobileNavOpen() {
         setIsMobileNavOpen(!isMobileNavOpen)
+    }
+
+    function onLoginGuest() {
+        const guest = {
+            fullname: 'Guest User',
+            isAdmin: false,
+        }
+        dispatch({ type: SET_USER, user: guest })
+        sessionStorage.setItem('loggedinUser', JSON.stringify(guest))
+        navigate('/board')
     }
 
 
@@ -63,12 +78,13 @@ export function HomePage() {
                             </Link>
                         </div>
 
-                        <Link to="/board" className='btn get-started-btn'>
+                        <button className='btn get-started-btn' onClick={onLoginGuest}>
                             <span>
                                 Get Started
                             </span>
                             <SvgIcon iconName="arrowRight" size={12} colorName="currentColor" />
-                        </Link>
+                        </button>
+
                     </div>
                 </nav>
 
@@ -92,15 +108,17 @@ export function HomePage() {
                     </h1>
                     <h2>Plan and execute work across projects, sales, marketing, IT,<br></br>
                         and engineering with a unified, AI-first product suite.</h2>
-                    <Link to="/board" className='btn get-started-btn'>
+
+                    <button className='btn get-started-btn' onClick={onLoginGuest}>
                         <span>
                             Get Started
                         </span>
                         <SvgIcon iconName="arrowRight" size={12} colorName="currentColor" />
-                    </Link>
+                    </button>
+
                 </div>
 
-                <VideoLama />
+                <VideoLama onLoginGuest={onLoginGuest} />
 
             </main>
 

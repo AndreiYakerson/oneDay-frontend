@@ -175,7 +175,7 @@ async function _createAdmin() {
     const user = {
         username: 'admin',
         password: 'admin',
-        fullname: 'dandan Adminsky',
+        fullname: 'Andrei',
         imgUrl: user1,
         isAdmin: true
     }
