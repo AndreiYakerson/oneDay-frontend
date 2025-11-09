@@ -29,8 +29,8 @@
     flex-direction: column;
     place-items: center;
 
-    width: 10vw;
-    /* max-width: 600px; */
+    /* width: 10vw; */
+    /* max-width: 200px; */
     max-height: 90vh;
 
     overflow-y: auto;

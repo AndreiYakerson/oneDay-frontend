@@ -94,6 +94,7 @@
         width: 26px;
         border-radius: 50%;
         border: 1px solid white;
+        object-fit: cover;
     }
 
     .user-name,

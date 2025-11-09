@@ -1,5 +1,6 @@
 .invite-user-wrapper {
-    width: 605px;
+    width:95vw;
+    max-width: 600px;
     overflow-x: hidden;
     margin-block: var(--spacing-medium);
 
