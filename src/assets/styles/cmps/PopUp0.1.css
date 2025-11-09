@@ -39,41 +39,12 @@
     background-color: var(--primary-background-color);
     box-shadow: var(--box-shadow-large);
 
-    /* z-index:var(--zIndex-popUp); */
-    /* padding: 1rem; */
-    /* overflow-y: auto;
-    flex: 1; */
-    /* .popup-close-btn {
-        position: absolute;
-        right: 16px;
-        top: 16px;
-        z-index:var(--zIndex-popUp);
-    } */
 }
 
 .popup-container::-webkit-scrollbar-thumb {
     border-top: 30px solid transparent;
-    /* shortens top */
     border-bottom: 30px solid transparent;
-    /* shortens bottom */
 }
-
-/* .popup-header {
-    padding: 0.5rem;
-    border-bottom: 1px solid var(--primary-background-color);
-    font-weight: bold;
-} */
-
-.popup-main {}
-
-/* .popup-footer {
-    padding: 0.5rem;
-    border-top: 1px solid var(--primary-background-color);
-    display: flex;
-    justify-content: center;
-} */
-
-
 
 @media (min-width: 750px) {
     .popup-container {

@@ -6,7 +6,6 @@
     text-wrap: nowrap;
 
     .app-logo {
-
         display: flex;
         align-items: center;
         padding: 3px 10px;
@@ -40,16 +39,18 @@
         .app-name {
             display: block;
         }
+
     }
 
 
 
     & section {
-        display: none;
+        display: flex;
         margin-inline-start: auto;
         align-items: center;
         gap: 5px;
         font-size: .8em;
+
 
 
         .login-link {
@@ -57,7 +58,7 @@
         }
 
         .main-nav-btn {
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
 
@@ -79,6 +80,7 @@
         }
 
         .middle-line {
+            display: none;
             background-color: var(--layout-border-color);
             height: 22px;
             margin-right: var(--spacing-xs);
@@ -142,7 +144,17 @@
             display: flex;
         }
 
+        .main-nav {
+            
+            .main-nav-btn {
+                display: flex;
+            }
 
+            .middle-line {
+                display: block;
+            }
+
+        }
 
         .app-logo {
             margin-block: 4px;
@@ -178,5 +190,6 @@
         .see-plans-container {
             display: flex;
         }
+
     }
 }

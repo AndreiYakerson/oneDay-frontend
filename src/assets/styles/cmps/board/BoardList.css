@@ -9,7 +9,7 @@
     padding-block: 16px;
 
 
-    &.side-bar-dispaly {
+    &.side-bar-display {
         display: flex;
         flex-direction: column;
         gap: 2px;
@@ -116,7 +116,7 @@
         padding-inline: 1em;
         padding: 16px;
 
-        &.side-bar-dispaly {
+        &.side-bar-display {
             padding-inline: 16px;
         }
     }

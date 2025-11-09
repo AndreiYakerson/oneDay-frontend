@@ -8,9 +8,8 @@ import { boardService } from '../../services/board'
 
 export function BoardList({ boards, isSideBarDisplay = false }) {
     const navigate = useNavigate()
-
-
     const location = useLocation()
+
     // function shouldShowActionBtns(board) {
     //     const user = userService.getLoggedinUser()
 
@@ -21,25 +20,15 @@ export function BoardList({ boards, isSideBarDisplay = false }) {
 
 
     async function onNavigateToBoard(boardId) {
-        // Set Board To Store
-        // try {
-        //     const board = await boardService.getById(boardId)
-        //     setBoard(board)
-        // } catch (error) {
-        //     console.log('cant set board to store')
-
-        // }
         navigate(`/board/${boardId}`)
     }
-
-
 
     function onNavigateToDahsboard() {
         navigate(`/dashboard`)
     }
 
 
-    return <ul className={`board-list ${isSideBarDisplay ? "side-bar-dispaly" : ""}`}>
+    return <ul className={`board-list ${isSideBarDisplay ? "side-bar-display" : ""}`}>
 
         <li
             className={`board-item  ${location.pathname.includes('dashboard') ? "active" : ""} dashboard-item`}
