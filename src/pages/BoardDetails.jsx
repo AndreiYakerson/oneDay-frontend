@@ -162,7 +162,7 @@ export function BoardDetails() {
         if (!headers.length) return
 
         const rows = container.querySelectorAll('.sticky-column')
-        
+
 
         const onScroll = () => {
             const containerRect = container.getBoundingClientRect()
@@ -172,7 +172,7 @@ export function BoardDetails() {
             rows.forEach(row => {
                 row.classList.toggle('side-box-shadow', scrollLeft > 0)
             })
-            
+
 
             headers.forEach((header, idx) => {
                 const rect = header.getBoundingClientRect()
@@ -247,6 +247,16 @@ export function BoardDetails() {
         showSuccessMsg(`You’ve been assigned to a new task!`)
     }
 
+    async function onAddGroup() {
+        try {
+            await addGroup(boardId)
+            showSuccessMsg('group added to the board')
+        } catch (err) {
+            console.log(err)
+            showErrorMsg('cannot add group')
+        }
+    }
+
 
     if (isAppLoading) return <AppLoader />
     if (boardRemovedMsg && !board) return <BoardRemovedMsg removedMsg={boardRemovedMsg} />
@@ -270,6 +280,7 @@ export function BoardDetails() {
                     filterOptions={filterOptions}
                     onSetFilterBy={onSetFilterBy}
                     isBoardLoading={isBoardLoading}
+                    onAddGroup={onAddGroup}
                 />
 
                 {isBoardLoading ? (
@@ -280,6 +291,7 @@ export function BoardDetails() {
                             <GroupList
                                 groups={boardGroupsToShow}
                                 managingType={board?.managingType}
+                                onAddGroup={onAddGroup}
                             />
                         ) : (
                             <div className='no-results-msg'>

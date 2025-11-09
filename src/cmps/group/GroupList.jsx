@@ -20,7 +20,7 @@ import { GroupOverlay } from "./GroupOverlay";
 
 
 
-export function GroupList({ groups, managingType }) {
+export function GroupList({ groups, managingType, onAddGroup }) {
     const { boardId } = useParams()
 
     const [localGroups, setLocalGroups] = useState(groups)
@@ -72,15 +72,7 @@ export function GroupList({ groups, managingType }) {
         }
     }
 
-    async function onAddGroup() {
-        try {
-            await addGroup(boardId)
-            showSuccessMsg('group added to the board')
-        } catch (err) {
-            console.log(err)
-            showErrorMsg('cannot add group')
-        }
-    }
+    
 
     function onAddColumn(columnType) {
         addColumn(board, columnType)

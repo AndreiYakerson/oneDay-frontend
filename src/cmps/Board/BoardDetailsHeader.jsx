@@ -29,7 +29,8 @@ export function BoardDetailsHeader({
     filterBy,
     filterOptions,
     onSetFilterBy,
-    isBoardLoading
+    isBoardLoading,
+    onAddGroup
 }) {
 
     const [isFilterOpen, setIsFilterOpen] = useState(false)
@@ -165,7 +166,8 @@ export function BoardDetailsHeader({
 
             <button
                 className=' transparent mobile-add-btn'
-                onClick={() => onAddTask(board?.groups[0]?.id, `New ${board?.managingType}`, 'unshift')}
+                // onClick={() => onAddTask(board?.groups[0]?.id, `New ${board?.managingType}`, 'unshift')}
+                onClick={onAddGroup}
                 disabled={!board?.groups?.length}
             >
                 <SvgIcon iconName='plus' size={20} colorName='secondaryText' />
