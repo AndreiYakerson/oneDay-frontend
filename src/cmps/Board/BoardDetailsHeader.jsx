@@ -41,6 +41,14 @@ export function BoardDetailsHeader({
     const personBtnRef = useRef(null)
     const sortByRef = useRef(null)
 
+    function scrollToEndOfPage() {
+        window.scrollTo({
+            top: document.body.scrollHeight, // Scroll to the bottom of the page
+            behavior: 'smooth', // Smooth scrolling animation
+        });
+
+    }
+
 
     function toggleIsFilterOpen() {
         setIsFilterOpen(!isFilterOpen)
@@ -166,8 +174,10 @@ export function BoardDetailsHeader({
 
             <button
                 className=' transparent mobile-add-btn'
-                // onClick={() => onAddTask(board?.groups[0]?.id, `New ${board?.managingType}`, 'unshift')}
-                onClick={onAddGroup}
+                onClick={() => {
+                    onAddGroup()
+                    scrollToEndOfPage()
+                }}
                 disabled={!board?.groups?.length}
             >
                 <SvgIcon iconName='plus' size={20} colorName='secondaryText' />
