@@ -14,6 +14,8 @@ import { userService } from '../services/user'
 import { makeId } from '../services/util.service'
 import { signup } from '../store/actions/user.actions'
 import { useNavigate } from 'react-router'
+import { filter } from 'lodash'
+import { log10 } from 'chart.js/helpers'
 
 
 
@@ -29,9 +31,14 @@ export function BoardIndex({ setIsSideBarOpen }) {
     const navigate = useNavigate()
 
     useEffect(() => {
+        setFilterBy(prevFilter => ({ ...prevFilter, memberId: user?._id }))
+    }, [user])
+
+    useEffect(() => {
         if (!user) navigate('/')
         loadBoards(filterBy)
     }, [filterBy])
+
 
     async function onRemoveBoard(boardId) {
         try {

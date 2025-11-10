@@ -12,6 +12,7 @@ import userImg9 from '/img/demoUsers/user9.png'
 import userImg10 from '/img/demoUsers/user10.png'
 import { httpService } from '../http.service'
 import { showErrorMsg } from '../event-bus.service'
+import { onSetIsApploading } from '../../store/actions/system.actions'
 
 const usersImgs = [userImg1, userImg2, userImg3, userImg4, userImg5, userImg6, userImg7, userImg8, userImg9, userImg10,]
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
@@ -150,6 +151,7 @@ function createDemoUsersForBoard(num) {
 
 async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
+    onSetIsApploading(true)
 }
 
 function getLoggedinUser() {

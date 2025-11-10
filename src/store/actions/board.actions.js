@@ -43,6 +43,7 @@ import {
 // LIST
 
 export async function loadBoards(filterBy) {
+    
     try {
         const boards = await boardService.query(filterBy)
         store.dispatch({ type: SET_BOARDS, boards })
