@@ -126,6 +126,7 @@
 
 @media (max-width: 500px) {
     .board-list {
+        scrollbar-width: none;
         height: 65vh;
         overflow-y: scroll;
         grid-template-rows: repeat(auto-fill, 50px);
