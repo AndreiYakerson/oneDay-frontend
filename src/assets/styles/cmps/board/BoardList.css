@@ -128,5 +128,9 @@
     .board-list {
         height: 65vh;
         overflow-y: scroll;
+        grid-template-rows: repeat(auto-fill, 50px);
+        .board-item {
+            height: max-content;
+        }
     }
 }
