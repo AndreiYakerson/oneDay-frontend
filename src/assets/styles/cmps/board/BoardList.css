@@ -115,9 +115,18 @@
     .board-list {
         padding-inline: 1em;
         padding: 16px;
+        
+
 
         &.side-bar-display {
             padding-inline: 16px;
         }
+    }
+}
+
+@media (max-width: 500px) {
+    .board-list {
+        height: 65vh;
+        overflow-y: scroll;
     }
 }

@@ -25,13 +25,14 @@ export function BoardIndex({ setIsSideBarOpen }) {
     const boards = useSelector(storeState => storeState.boardModule.boards)
 
     const [user, setUser] = useState(userService.getLoggedinUser())
-    const [filterBy, setFilterBy] = useState(boardService.getDefaultFilter())
+    const [filterBy, setFilterBy] = useState({memberId: user?._id})
     const [isCollapse, setIsCollapse] = useState(false)
 
     const navigate = useNavigate()
 
     useEffect(() => {
         setFilterBy(prevFilter => ({ ...prevFilter, memberId: user?._id }))
+        console.log(filterBy);
     }, [user])
 
     useEffect(() => {
