@@ -27,6 +27,7 @@ export function BoardPreview({ board, isSideBarDisplay }) {
     const [boardTitleToEdit, setoardTitleToEdit] = useState(board?.title)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+
     const btnRef = useRef(null)
     const menuRef = useRef(null)
 
@@ -49,7 +50,6 @@ export function BoardPreview({ board, isSideBarDisplay }) {
         const url = window.location.origin + `/board/${board?._id}`
         window.open(url, '_blank')
     }
-
 
     useEffect(() => {
         if (board?.isStarred !== isStarred) {
@@ -123,7 +123,9 @@ export function BoardPreview({ board, isSideBarDisplay }) {
 
             <div className='board-info-items'>
 
-                <div className='board-icon-wrapper'>
+                <div
+                    className='board-icon-wrapper'
+                >
                     <SvgIcon
                         iconName={board.title === 'Dashboard' ? 'chart' : 'board'}
                         size={isSideBarDisplay ? 16 : 22}
@@ -150,47 +152,51 @@ export function BoardPreview({ board, isSideBarDisplay }) {
                 }
 
 
-                {isSideBarDisplay
-                    ? <>
-                        {board.title !== 'Dashboard' &&
-                            <button
-                                className='btn-shrink-wrapper'
-                                onClick={toggleIsMenuOpen}
-                                ref={btnRef}
-                            >
-                                <div className={`btn transparent board-menu-btn ${isMenuOpen ? "menu-open" : ""} shrink`}>
-                                    <SvgIcon iconName="dots" size={16} colorName="currentColor" />
-                                </div>
 
-                            </button>}
-
-
-                        {isMenuOpen && <FloatingContainerCmp
-                            anchorEl={btnRef.current}
-                            onClose={onCloseMenu}
-                            offsetX={40}
-                            offsetY={30}
+                <>
+                    {
+                        board.title !== 'Dashboard' &&
+                        <button
+                            className='btn-shrink-wrapper'
+                            onClick={toggleIsMenuOpen}
+                            ref={btnRef}
                         >
-                            <ActionsMenu
-                                menuRef={menuRef}
-                                onCloseMenu={onCloseMenu}
-                                onOpenInNewTab={onOpenInNewTab}
-                                toggleIsStarred={() => toggleIsStarred(!isStarred)}
-                                onRemoveItem={() => onRemoveBoard(board)}
-                                isStarred={isStarred}
-                                onRenameBoard={onSetRenameBoard}
-                                isHrShown={true}
-                            />
-                        </FloatingContainerCmp>}
-                    </>
+                            <div className={`btn transparent board-menu-btn ${isMenuOpen ? "menu-open" : ""} shrink`}>
+                                <SvgIcon iconName="dots" size={16} colorName="currentColor" />
+                            </div>
 
-                    : <button className='transparent square star-btn' onClick={(ev) => { ev.stopPropagation(), toggleIsStarred(!isStarred) }}>
-                        <SvgIcon iconName={isStarred ? 'starFull' : 'star'}
-                            size={22}
-                            colorName={isStarred ? "starColor" : 'secondaryText'}
+                        </button>
+                    }
+
+
+                    {isMenuOpen && <FloatingContainerCmp
+                        anchorEl={btnRef.current}
+                        onClose={onCloseMenu}
+                        offsetX={40}
+                        offsetY={30}
+                    >
+                        <ActionsMenu
+                            menuRef={menuRef}
+                            onCloseMenu={onCloseMenu}
+                            onOpenInNewTab={onOpenInNewTab}
+                            toggleIsStarred={() => toggleIsStarred(!isStarred)}
+                            onRemoveItem={() => onRemoveBoard(board)}
+                            isStarred={isStarred}
+                            onRenameBoard={onSetRenameBoard}
+                            isHrShown={true}
                         />
-                    </button>
-                }
+                    </FloatingContainerCmp>}
+
+                    {!isSideBarDisplay && board.title !== 'Dashboard' &&
+                        <button className='transparent square star-btn' onClick={(ev) => { ev.stopPropagation(), toggleIsStarred(!isStarred) }}>
+                            <SvgIcon iconName={isStarred ? 'starFull' : 'star'}
+                                size={22}
+                                colorName={isStarred ? "starColor" : 'secondaryText'}
+                            />
+                        </button>}
+                </>
+
+
 
 
             </div>

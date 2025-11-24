@@ -25,8 +25,11 @@ export function BoardIndex({ setIsSideBarOpen }) {
     const boards = useSelector(storeState => storeState.boardModule.boards)
 
     const [user, setUser] = useState(userService.getLoggedinUser())
-    const [filterBy, setFilterBy] = useState({memberId: user?._id})
-    const [isCollapse, setIsCollapse] = useState(false)
+    const [filterBy, setFilterBy] = useState({ memberId: user?._id })
+
+    const [isBoardsCollapse, setIsBoardsCollapse] = useState(false)
+    const [isFavCollapse, setIsFavCollapse] = useState(false)
+
 
     const navigate = useNavigate()
 
@@ -63,8 +66,9 @@ export function BoardIndex({ setIsSideBarOpen }) {
         }
     }
 
-    function toggleIsCollapse() {
-        setIsCollapse(!isCollapse)
+    function toggleIsCollapse(container) {
+        if (container === 'boards') setIsBoardsCollapse(!isBoardsCollapse)
+        else setIsFavCollapse(!isFavCollapse)
     }
 
     if (isAppLoading || !user) return <AppLoader />
@@ -79,23 +83,47 @@ export function BoardIndex({ setIsSideBarOpen }) {
             </header>
             {/* <BoardFilter filterBy={filterBy} setFilterBy={setFilterBy} /> */}
 
-            <div className='board-list-container'>
+            <div className='board-list-container favorites-board-list'>
                 <div className='board-list-title flex'>
 
                     <div className='board-list-collapse-toggle'
-                        onClick={toggleIsCollapse}
+                        onClick={() => toggleIsCollapse('favorites')}
                     >
                         <SvgIcon
-                            iconName={isCollapse ? 'chevronRight' : 'chevronDown'}
+                            iconName={isFavCollapse ? 'chevronRight' : 'chevronDown'}
                             size={24}
                             colorName={'currentColor'}
                         />
                     </div>
 
-                    <span>Recently visited</span>
+                    <span>Favorites</span>
                 </div>
 
-                {!isCollapse && <BoardList
+                {!isFavCollapse && <BoardList
+                    boards={boards.filter(board => board.isStarred)}
+                    onRemoveBoard={onRemoveBoard}
+                    onUpdateBoard={onUpdateBoard}
+                    isDashboard={false}
+                />}
+            </div>
+
+            <div className='board-list-container'>
+                <div className='board-list-title flex'>
+
+                    <div className='board-list-collapse-toggle'
+                        onClick={() => toggleIsCollapse('boards')}
+                    >
+                        <SvgIcon
+                            iconName={isBoardsCollapse ? 'chevronRight' : 'chevronDown'}
+                            size={24}
+                            colorName={'currentColor'}
+                        />
+                    </div>
+
+                    <span>All boards</span>
+                </div>
+
+                {!isBoardsCollapse && <BoardList
                     boards={boards}
                     onRemoveBoard={onRemoveBoard}
                     onUpdateBoard={onUpdateBoard}

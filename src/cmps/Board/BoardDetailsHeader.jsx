@@ -154,14 +154,14 @@ export function BoardDetailsHeader({
                         </span>
                     </div>
 
-                    <button className='more-btn'>
+                    {/* <button className='more-btn'>
                         <HoveredTextCmp
                             label="Options"
                             position="down"
                         >
                             <SvgIcon iconName='dots' size={24} />
                         </HoveredTextCmp>
-                    </button>
+                    </button> */}
                 </nav>
 
             </section>

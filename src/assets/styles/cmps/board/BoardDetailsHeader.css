@@ -30,7 +30,7 @@
           grid-row: 1;
 
           .mobile-back-btn {
-              position: fixed;
+              position: absolute;
               left: 16px;
           }
 
@@ -126,6 +126,7 @@
               }
 
               .more-btn {
+                  position: relative;
                   width: 32px;
                   height: 32px;
                   border: none;
@@ -153,7 +154,7 @@
 
       .board-actions {
           position: fixed;
-          bottom: 3dvh;
+          bottom: 16px;
 
           padding-block: 16px;
           padding-inline-end: 8px;

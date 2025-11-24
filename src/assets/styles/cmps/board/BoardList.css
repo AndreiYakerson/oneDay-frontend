@@ -6,7 +6,7 @@
     align-items: stretch;
     grid-gap: 20px;
     border-radius: 2vh;
-    padding-block: 16px;
+    padding-block: 32px;
 
 
     &.side-bar-display {
@@ -127,11 +127,7 @@
 @media (max-width: 500px) {
     .board-list {
         scrollbar-width: none;
-        height: 65vh;
         overflow-y: scroll;
-        grid-template-rows: repeat(auto-fill, 50px);
-        .board-item {
-            height: max-content;
-        }
+        gap: 30px;
     }
 }
