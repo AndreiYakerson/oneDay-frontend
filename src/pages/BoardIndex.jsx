@@ -83,29 +83,34 @@ export function BoardIndex({ setIsSideBarOpen }) {
             </header>
             {/* <BoardFilter filterBy={filterBy} setFilterBy={setFilterBy} /> */}
 
-            <div className='board-list-container favorites-board-list'>
-                <div className='board-list-title flex'>
+            {boards.filter(board => board.isStarred).length > 0 &&
 
-                    <div className='board-list-collapse-toggle'
-                        onClick={() => toggleIsCollapse('favorites')}
-                    >
-                        <SvgIcon
-                            iconName={isFavCollapse ? 'chevronRight' : 'chevronDown'}
-                            size={24}
-                            colorName={'currentColor'}
-                        />
+                <div className='board-list-container favorites-board-list'>
+                    <div className='board-list-title flex'>
+
+                        <div className='board-list-collapse-toggle'
+                            onClick={() => toggleIsCollapse('favorites')}
+                        >
+                            <SvgIcon
+                                iconName={isFavCollapse ? 'chevronRight' : 'chevronDown'}
+                                size={24}
+                                colorName={'currentColor'}
+                            />
+                        </div>
+
+                        <span>Favorites</span>
                     </div>
 
-                    <span>Favorites</span>
+                    {!isFavCollapse && <BoardList
+                        boards={boards.filter(board => board.isStarred)}
+                        onRemoveBoard={onRemoveBoard}
+                        onUpdateBoard={onUpdateBoard}
+                        isDashboard={false}
+                    />}
                 </div>
+            }
 
-                {!isFavCollapse && <BoardList
-                    boards={boards.filter(board => board.isStarred)}
-                    onRemoveBoard={onRemoveBoard}
-                    onUpdateBoard={onUpdateBoard}
-                    isDashboard={false}
-                />}
-            </div>
+
 
             <div className='board-list-container'>
                 <div className='board-list-title flex'>
@@ -128,6 +133,7 @@ export function BoardIndex({ setIsSideBarOpen }) {
                     onRemoveBoard={onRemoveBoard}
                     onUpdateBoard={onUpdateBoard}
                 />}
+
             </div>
 
 
