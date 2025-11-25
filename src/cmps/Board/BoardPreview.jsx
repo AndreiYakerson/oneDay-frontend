@@ -16,6 +16,7 @@ import { FloatingContainerCmp } from '../FloatingContainerCmp.jsx'
 // images
 import boardItemLogo from '/img/board-item-img.svg'
 import dashboardItemLogo from '/img/dashboard-item-img.svg'
+import { useSelector } from 'react-redux'
 
 
 
@@ -26,7 +27,7 @@ export function BoardPreview({ board, isSideBarDisplay }) {
     const [toRenameBoard, setToRenameBoard] = useState(false)
     const [boardTitleToEdit, setoardTitleToEdit] = useState(board?.title)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-
+    const loggedinUser = useSelector(state => state.userModule.user)
 
     const btnRef = useRef(null)
     const menuRef = useRef(null)
@@ -155,7 +156,7 @@ export function BoardPreview({ board, isSideBarDisplay }) {
 
                 <>
                     {
-                        board.title !== 'Dashboard' &&
+                        board.title !== 'Dashboard' && loggedinUser?._id === board?.owner?._id &&
                         <button
                             className='btn-shrink-wrapper'
                             onClick={toggleIsMenuOpen}
@@ -187,7 +188,7 @@ export function BoardPreview({ board, isSideBarDisplay }) {
                         />
                     </FloatingContainerCmp>}
 
-                    {!isSideBarDisplay && board.title !== 'Dashboard' &&
+                    {!isSideBarDisplay && board.title !== 'Dashboard' && 
                         <button className='transparent square star-btn' onClick={(ev) => { ev.stopPropagation(), toggleIsStarred(!isStarred) }}>
                             <SvgIcon iconName={isStarred ? 'starFull' : 'star'}
                                 size={22}
