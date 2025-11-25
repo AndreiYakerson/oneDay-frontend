@@ -2,11 +2,16 @@
     display: flex;
     flex-direction: column;
     margin-block-end: 1em;
-    gap: 30px;
+    gap: 20px;
 
     &:last-child {
         margin-block-end: 100px;
     }
+
+    &:last-child {
+        margin-block-start: 20px;
+    }
+
 
     .board-index-header {
         display: none;
@@ -74,7 +79,7 @@
         padding: 24px;
         margin-inline: 20px;
         border-radius: 16px;
-        max-height: 260px;
+        max-height: 255px;
         overflow-y: auto;
         scrollbar-width: none;
 
