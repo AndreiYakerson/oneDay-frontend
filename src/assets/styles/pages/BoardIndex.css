@@ -2,9 +2,10 @@
     display: flex;
     flex-direction: column;
     margin-block-end: 1em;
+    gap: 30px;
 
     &:last-child {
-        margin-block-end: 120px;
+        margin-block-end: 100px;
     }
 
     .board-index-header {
@@ -70,9 +71,12 @@
     }
 
     .board-list-container {
-        margin: 20px;
         padding: 24px;
+        margin-inline: 20px;
         border-radius: 16px;
+        max-height: 260px;
+        overflow-y: auto;
+        scrollbar-width: none;
 
         background: rgba(255, 255, 255, 0.2);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -99,6 +103,8 @@
             border: 0;
             border-radius: 8px;
             box-shadow: 0px 3px 12px var(--application-border-color);
+            overflow-y: visible;
+            max-height: max-content;
         }
 
         .favorites-board-list {
