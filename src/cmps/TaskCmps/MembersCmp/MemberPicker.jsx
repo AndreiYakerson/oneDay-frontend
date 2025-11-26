@@ -105,6 +105,8 @@ export function MemberPicker({ info, onUpdate }) {
                         onClose={closeMemberSelect}
                         onUpdate={updateTaskMembers}
                         onEmitAssignedUser={onEmitAssignedUser}
+                        loggedinUser={loggedinUser}
+                        boardOwner={board.owner}
                     />
                 </FloatingContainerCmp>
             )}

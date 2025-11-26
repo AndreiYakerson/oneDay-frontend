@@ -26,7 +26,6 @@ export function InviteUser({ onClosePopUp }) {
         try {
             const users = await userService.getUsers()
             setUsers(users)
-            showSuccessMsg('saved users loaded')
         } catch (error) {
             console.log("cant fetch users", error)
 
@@ -40,7 +39,6 @@ export function InviteUser({ onClosePopUp }) {
             onClosePopUp()
         } catch (error) {
             console.log(" Invite by mail. Problem updating member", error)
-
         }
     }
 

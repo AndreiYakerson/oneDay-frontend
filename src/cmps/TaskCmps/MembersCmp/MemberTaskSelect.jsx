@@ -11,7 +11,7 @@ import { userService } from '../../../services/user'
 
 // COMPONENTS
 
-export function MemberTaskSelect({ selectedMemberIds, onClose, members, onInvite, onUpdate, onEmitAssignedUser }) {
+export function MemberTaskSelect({ selectedMemberIds, onClose, members, onInvite, onUpdate, onEmitAssignedUser, loggedinUser, boardOwner }) {
 
     const [inputValue, setInputValue] = useState('')
     // const board = useSelector(state => state.boardModule.board)
@@ -109,13 +109,16 @@ export function MemberTaskSelect({ selectedMemberIds, onClose, members, onInvite
                         </button>
                     })}
 
-                    <button className="user invite-btn flex"
-                        onClick={() => _onShowPopUp(true)}>
-                        <span className="icon">
-                            <SvgIcon iconName='addMember' size={16} colorName="secondaryText" />
-                        </span>
-                        <span className="txt">{' Invite a new member by email'}</span>
-                    </button>
+                    {loggedinUser._id === boardOwner._id &&
+                        <button className="user invite-btn flex"
+                            onClick={() => _onShowPopUp(true)}>
+                            <span className="icon">
+                                <SvgIcon iconName='addMember' size={16} colorName="secondaryText" />
+                            </span>
+                            <span className="txt">{' Invite a new member by email'}</span>
+                        </button>
+                    }
+
                 </section>
             </div>
 
