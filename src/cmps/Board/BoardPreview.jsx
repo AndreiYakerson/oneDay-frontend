@@ -139,20 +139,16 @@ export function BoardPreview({ board, isSideBarDisplay }) {
                     />
                 </div>
 
-                {isSideBarDisplay
-                    ? <div className='board-title'>
-                        {toRenameBoard ? <TitleEditor
-                            info={{ currTitle: boardTitleToEdit, toRenameBoard: toRenameBoard }}
-                            onUpdate={onSetBoardTitleToRename}
-                            onSetRenameBoard={onSetRenameBoard}
-                        />
-                            : <span>{boardTitleToEdit}</span>
-                        }
-                    </div>
-                    : <div className='board-title'>{board.title}</div>
-                }
 
-
+                <div className='board-title'>
+                    {toRenameBoard ? <TitleEditor
+                        info={{ currTitle: boardTitleToEdit, toRenameBoard: toRenameBoard }}
+                        onUpdate={onSetBoardTitleToRename}
+                        onSetRenameBoard={onSetRenameBoard}
+                    />
+                        : <span>{boardTitleToEdit}</span>
+                    }
+                </div>
 
                 <>
                     {
@@ -188,7 +184,7 @@ export function BoardPreview({ board, isSideBarDisplay }) {
                         />
                     </FloatingContainerCmp>}
 
-                    {!isSideBarDisplay && board.title !== 'Dashboard' && 
+                    {!isSideBarDisplay && board.title !== 'Dashboard' &&
                         <button className='transparent square star-btn' onClick={(ev) => { ev.stopPropagation(), toggleIsStarred(!isStarred) }}>
                             <SvgIcon iconName={isStarred ? 'starFull' : 'star'}
                                 size={22}
