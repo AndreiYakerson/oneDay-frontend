@@ -5,7 +5,7 @@
        grid-column: 1/-1;
        height: 36px;
        background-color: var(--primary-background-color);
-       margin-inline-start: 32px;
+       margin-inline-start: 40px;
 
        &.drag-preview {
            display: grid;
@@ -87,7 +87,7 @@
        background-color: white;
 
        display: grid;
-       grid-template-columns: 6px calc(var(--item-column) - 38px);
+       grid-template-columns: 6px calc(var(--item-column) - 46px);
        max-height: 36px;
        min-height: 36px;
 
@@ -137,14 +137,14 @@
        .task-menu-wrapper {
            position: absolute;
            top: 0;
-           left: -36px;
+           left: -40px;
 
            display: grid;
            justify-content: end;
            place-items: center;
 
            background-color: var(--primary-background-color);
-           width: 36px;
+           width: 40px;
            height: 40px;
 
            z-index: var(--zIndex-Layer-50);
@@ -440,5 +440,11 @@
 
        .task-select {
            display: flex;
+       }
+
+       .sticky-cell-wrapper {
+           .task-menu-wrapper>* {
+               opacity: 0;
+           }
        }
    }
