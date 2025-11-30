@@ -5,7 +5,7 @@
        grid-column: 1/-1;
        height: 36px;
        background-color: var(--primary-background-color);
-       margin-inline-start: 10px;
+       margin-inline-start: 32px;
 
        &.drag-preview {
            display: grid;
@@ -87,7 +87,7 @@
        background-color: white;
 
        display: grid;
-       grid-template-columns: 6px calc(var(--item-column) - 16px);
+       grid-template-columns: 6px calc(var(--item-column) - 38px);
        max-height: 36px;
        min-height: 36px;
 
@@ -162,7 +162,7 @@
                padding: 0;
                margin-inline-end: 4px;
                margin-block-end: 4px;
-               opacity: 0;
+               opacity: 1;
 
                &:has(.menu-open) {
                    position: relative;
@@ -216,7 +216,7 @@
            .grab-block {
                cursor: grab;
                height: 100%;
-               width: 36px;
+               width: 100px;
                min-width: 10px;
                flex: 1 1;
            }
